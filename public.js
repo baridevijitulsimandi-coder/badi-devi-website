@@ -14,8 +14,12 @@ function showSocial(s) {
   $('socialGrid').innerHTML=configuredItems.map(x=>`<a class="social ${x[4]}" href="${esc(s[x[0]])}" target="_blank" rel="noopener"><span class="social-symbol">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></a>`).join('');
 }
 function renderGallery(items) {
-  if(!items.length) return;
-  $('galleryCards').innerHTML=items.map(x=>`<article class="media-card">${x.media_type==='video'?`<video controls preload="metadata" src="${esc(x.media_url)}"></video>`:`<img loading="lazy" src="${esc(x.media_url)}" alt="${esc(x.title)}">`}<div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description)} ${x.year_label?`· ${esc(x.year_label)}`:''}</p></div></article>`).join('');
+  const cards=$('galleryCards');
+  if(!cards) return;
+  const years=[...new Set(['2025',...items.map(x=>String(x.year_label||'2025'))])].sort((a,b)=>Number(b)-Number(a));
+  const selected=cards.dataset.year||'2025';
+  cards.innerHTML=`<div class="gallery-year-filter" style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-gallery-year="${esc(y)}">${esc(y)}</button>`).join('')}</div>`+items.filter(x=>String(x.year_label||'2025')===selected).map(x=>`<article class="media-card">${x.media_type==='video'? `<video controls preload="metadata" src="${esc(x.media_url)}"></video>`:`<img loading="lazy" src="${esc(x.media_url)}" alt="${esc(x.title)}">`}<div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description)} · ${esc(x.year_label||'2025')}</p></div></article>`).join('');
+  cards.querySelectorAll('[data-gallery-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.galleryYear;renderGallery(items)}));
 }
 function renderVideos(items) {
   if(!items.length) return;
