@@ -372,3 +372,13 @@
   .hero-actions{margin-bottom:0!important}
   .hero{padding-bottom:18px!important}
 }
+
+/* Mobile: compact lower hero copy so the deity photo stays visible */
+@media(max-width:700px){
+  .hero-inner{padding:0 5.7% 8px!important;transform:none!important}
+  .hero-pill{font-size:9px!important;line-height:1.15!important;padding:3px 7px!important;margin:0 0 3px!important}
+  .hero-desc{font-size:10px!important;line-height:1.25!important;margin:2px 0 5px!important}
+  .hero-actions{gap:5px!important;flex-wrap:wrap!important}
+  .hero-actions .button{font-size:9px!important;line-height:1.1!important;padding:6px 8px!important}
+  .hero{padding-bottom:12px!important}
+}
