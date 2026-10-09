@@ -63,425 +63,75 @@
   #events .event-row small { font-size:12px; }
 }
 
-/* Hero: keep all title and call-to-action text above the full-width Devi photo */
-.hero { background-position:center top,center bottom!important; }
-.hero-inner { min-height:0; padding:42px 0 300px; }
-.hero-copy { max-width:720px; }
-.hero-overline { display:none!important; }
-@media(max-width:790px) {
- .hero-inner { padding:32px 0 280px; }
+/* Rebuilt homepage hero: transparent maroon overlays over the full Devi photograph */
+.hero{
+  position:relative!important;
+  display:block!important;
+  isolation:isolate;
+  overflow:hidden;
+  background:#650d16!important;
+  color:#fff6df;
 }
-@media(max-width:520px) {
- .hero { background-position:center top,center bottom!important; background-size:100% 100%,100% auto!important; }
- .hero-inner { width:88%; min-height:0!important; padding:25px 0 300px!important; }
- .hero-copy { padding:0!important; }
- .hero h1 { font-size:clamp(30px,8vw,39px)!important; }
- .hero-desc { margin-bottom:16px!important; }
-}
-
-
-/* Hero layout: show the full Devi photo first, with title and copy below it. */
-.hero{display:flex;flex-direction:column;background-image:none!important;background-color:var(--maroon-deep)}
-.hero-photo{display:none;width:100%;background:#31070b;text-align:center;line-height:0;position:relative;z-index:1}
-.hero-photo:not([hidden]){display:block}
-.hero-photo img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;object-position:center;background:#31070b}
-.hero-inner{width:min(1160px,91%);min-height:0;padding:30px 0 34px;align-items:flex-start}
-.hero-copy{max-width:900px}
-.hero-desc{max-width:850px}
-@media(max-width:700px){.hero-inner{width:90%;padding:24px 0 28px}.hero-photo img{max-height:72vh}.hero h1{font-size:clamp(34px,9vw,48px)}.hero-desc{font-size:14px}}
-
-
-/* Soft transparent devotional overlay: photo remains visible behind the hero copy */
-.hero{position:relative;isolation:isolate;background:linear-gradient(180deg,rgba(91,8,18,.72),rgba(91,8,18,.42))!important}
-.hero-photo{position:relative;z-index:0;background:transparent!important}
-.hero-photo img{background:transparent!important;max-height:none!important;object-fit:contain}
-.hero-inner{position:relative;z-index:1;background:linear-gradient(180deg,rgba(91,8,18,.36),rgba(91,8,18,.58));width:100%!important;padding:26px max(5%,calc((100% - 1160px)/2)) 34px!important}
-.hero-copy{max-width:900px}
-@media(max-width:700px){
- .hero{background:linear-gradient(180deg,rgba(91,8,18,.25),rgba(91,8,18,.48))!important}
- .hero-inner{padding:22px 6% 28px!important;background:linear-gradient(180deg,rgba(91,8,18,.32),rgba(91,8,18,.62))}
- .hero-photo img{width:100%;height:auto;max-height:none!important;object-fit:contain}
-}
-
-
-/* Homepage hero layout: title first, full Devi photo, then description/actions */
-.hero{display:flex;flex-direction:column;background:var(--maroon-deep)!important;overflow:hidden}
-.hero:after{display:none}
-.hero-heading{width:100%;padding:24px 5% 20px;text-align:center;background:var(--maroon);color:#fff3d5;border-bottom:2px solid var(--gold)}
-.hero-heading h1{font-family:'Tiro Devanagari Hindi','Hind',serif;font-size:clamp(32px,5vw,54px);font-weight:400;line-height:1.25;margin:0;color:#ffedb0}
-.hero-heading h2{margin:2px 0 0;font-size:clamp(19px,2.6vw,26px);font-weight:600;color:#fff3d5}
-.hero-photo{width:100%;display:flex;justify-content:center;align-items:center;background:var(--maroon-deep);line-height:0}
-.hero-photo[hidden]{display:none}
-.hero-photo img{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;object-position:center;background:var(--maroon-deep)}
-.hero-inner{width:100%;min-height:0;margin:0;padding:24px max(5%,calc((100% - 1160px)/2)) 30px!important;background:var(--maroon-deep);display:flex;align-items:flex-start}
-.hero-copy{max-width:850px}
-.hero-pill{margin-bottom:12px}
-.hero-desc{max-width:900px;margin:4px 0 18px}
-@media(max-width:700px){
- .hero-heading{padding:18px 5% 15px}
- .hero-photo img{width:100%;height:auto;max-height:none;object-fit:contain}
- .hero-inner{padding:20px 6% 26px!important}
- .hero-desc{font-size:14px;line-height:1.8}
-}
-
-
-/* Fine-tuned homepage title and translucent photo transitions */
-.hero-heading{
-  position:relative;
-  z-index:2;
-  text-align:left!important;
-  padding:25px max(6%,calc((100% - 1160px)/2)) 22px!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.94) 0%,rgba(91,8,18,.78) 72%,rgba(91,8,18,.42) 100%)!important;
-  border-bottom:0!important;
-  margin-bottom:-1px;
-}
-.hero-heading h1{font-size:clamp(38px,5.4vw,62px)!important;letter-spacing:.01em}
-.hero-heading h2{font-size:clamp(22px,3vw,30px)!important}
+.hero:after{display:none!important}
 .hero-photo{
-  margin-top:-1px;
-  background:linear-gradient(180deg,rgba(91,8,18,.2),rgba(91,8,18,.08) 15%,rgba(91,8,18,.28) 100%)!important;
+  display:block!important;
+  width:100%;
+  margin:0!important;
+  padding:0;
+  line-height:0;
+  position:relative;
+  z-index:0;
+  background:#650d16!important;
 }
+.hero-photo[hidden]{display:none!important}
 .hero-photo img{
+  display:block;
   width:100%!important;
-  max-height:none!important;
   height:auto!important;
+  max-height:none!important;
   object-fit:contain!important;
   object-position:center center!important;
-}
-.hero-inner{
-  margin-top:-1px!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.40),rgba(91,8,18,.78))!important;
-  padding-top:25px!important;
-}
-.hero-pill,.hero-desc,.hero-actions{position:relative;z-index:1}
-@media(max-width:700px){
-  .hero-heading{padding:22px 6% 18px!important;background:linear-gradient(180deg,rgba(91,8,18,.94),rgba(91,8,18,.62))!important}
-  .hero-heading h1{font-size:clamp(35px,8.5vw,48px)!important;line-height:1.3}
-  .hero-heading h2{font-size:23px!important}
-  .hero-photo{background:linear-gradient(180deg,rgba(91,8,18,.12),rgba(91,8,18,.2))!important}
-  .hero-inner{padding:22px 6% 28px!important;background:linear-gradient(180deg,rgba(91,8,18,.42),rgba(91,8,18,.82))!important}
-}
-
-
-/* Requested final polish: 70%-transparent maroon overlays, full photo, left-aligned larger title */
-.hero-heading{
-  text-align:left!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.30) 0%,rgba(91,8,18,.30) 72%,rgba(91,8,18,.30) 100%)!important;
-  padding:25px max(6%,calc((100% - 1160px)/2)) 22px!important;
-  border-bottom:0!important;
-}
-.hero-heading h1{
-  font-size:clamp(40px,5.6vw,64px)!important;
-  line-height:1.25!important;
-  color:#ffedb0!important;
-}
-.hero-heading h2{
-  font-size:clamp(24px,3.1vw,32px)!important;
-  color:#fff3d5!important;
-}
-.hero-photo{
-  background:rgba(69,7,13,.30)!important;
-}
-.hero-photo img{
-  display:block!important;
-  width:100%!important;
-  height:auto!important;
-  max-height:none!important;
-  object-fit:contain!important;
-  object-position:center!important;
-}
-.hero-inner{
-  position:relative!important;
-  z-index:2!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important;
-  padding-top:25px!important;
-  padding-bottom:30px!important;
-}
-.hero-pill{
-  border-color:rgba(239,201,113,.72)!important;
-  background:rgba(91,8,18,.12)!important;
-}
-@media(max-width:700px){
-  .hero-heading{
-    padding:22px 6% 18px!important;
-    background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important;
-  }
-  .hero-heading h1{font-size:clamp(37px,9vw,49px)!important;line-height:1.3!important}
-  .hero-heading h2{font-size:24px!important}
-  .hero-photo{background:rgba(69,7,13,.30)!important}
-  .hero-inner{
-    padding:22px 6% 28px!important;
-    background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important;
-  }
-}
-
-
-/* Match the user's reference: title and description sit translucently over the same full Devi photo */
-.hero{position:relative;display:block!important;overflow:hidden;background:#650d16!important}
-.hero-heading{
-  position:relative!important;z-index:3!important;
-  margin-bottom:clamp(-245px,-22vw,-145px)!important;
-  min-height:clamp(145px,22vw,245px);
-  padding:clamp(22px,5vw,56px) 6% 18px!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important;
-  backdrop-filter:blur(1px);
-}
-.hero-heading h1{font-size:clamp(40px,7vw,72px)!important;line-height:1.22!important;text-align:left!important}
-.hero-heading h2{font-size:clamp(25px,4vw,38px)!important;line-height:1.35!important;text-align:left!important}
-.hero-photo{position:relative!important;z-index:1!important;display:block!important;width:100%!important;margin:0!important;background:transparent!important;line-height:0!important}
-.hero-photo img{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center!important}
-.hero-inner{
-  position:relative!important;z-index:3!important;width:100%!important;
-  margin-top:clamp(-250px,-23vw,-150px)!important;
-  padding:clamp(155px,22vw,245px) 6% 30px!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important;
-  backdrop-filter:blur(1px);
-}
-.hero-copy{width:100%!important;max-width:1000px!important}
-.hero-pill{display:inline-block!important;border:2px solid rgba(255,218,119,.9)!important;background:rgba(91,8,18,.12)!important;color:#ffe8a1!important;font-size:clamp(15px,2.1vw,24px)!important;padding:7px 22px!important;border-radius:40px!important}
-.hero-desc{max-width:1000px!important;color:#fff8eb!important;font-size:clamp(18px,2.5vw,30px)!important;line-height:1.75!important;margin:14px 0 22px!important}
-.hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
-.hero-actions .button{font-size:clamp(16px,2vw,24px)!important;padding:13px 24px!important;border-radius:45px!important}
-@media(max-width:700px){
- .hero-heading{min-height:0!important;margin-bottom:-150px!important;padding:22px 6% 18px!important}
- .hero-heading h1{font-size:clamp(36px,9vw,52px)!important;line-height:1.28!important}
- .hero-heading h2{font-size:clamp(24px,6vw,32px)!important}
- .hero-inner{margin-top:-170px!important;padding:190px 6% 28px!important}
- .hero-pill{font-size:16px!important;padding:7px 16px!important}
- .hero-desc{font-size:18px!important;line-height:1.75!important;margin:12px 0 18px!important}
- .hero-actions{gap:10px!important}
- .hero-actions .button{font-size:16px!important;padding:12px 17px!important}
-}
-
-
-/* Fix reference mismatch: keep the Devi photo sharp; only tint it with translucent maroon */
-.hero-heading{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.hero-inner{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.hero-heading{background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important}
-.hero-photo{background:transparent!important}
-.hero-photo img{filter:none!important}
-.hero-inner{
-  margin-top:clamp(-260px,-25vw,-175px)!important;
-  padding-top:clamp(190px,25vw,270px)!important;
-  background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.48))!important;
-}
-@media(max-width:700px){
- .hero-heading{margin-bottom:-150px!important;background:rgba(91,8,18,.30)!important}
- .hero-inner{
-   margin-top:-245px!important;
-   padding:260px 6% 28px!important;
-   background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.48))!important;
- }
-}
-
-
-/* FINAL HERO LAYOUT — match the supplied reference image, with crisp photo and translucent overlays */
-.hero{
-  display:grid!important;
-  grid-template-columns:minmax(0,1fr)!important;
-  grid-template-rows:auto!important;
-  position:relative!important;
-  isolation:isolate!important;
-  overflow:hidden!important;
   background:#650d16!important;
-}
-.hero-photo{
-  grid-area:1/1!important;
-  align-self:stretch!important;
-  justify-self:stretch!important;
-  width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  display:block!important;
-  position:relative!important;
-  z-index:0!important;
-  background:transparent!important;
-  line-height:0!important;
-}
-.hero-photo img{
-  display:block!important;
-  width:100%!important;
-  height:auto!important;
-  max-height:none!important;
-  object-fit:contain!important;
-  object-position:center top!important;
-  filter:none!important;
-}
-.hero-heading{
-  grid-area:1/1!important;
-  align-self:start!important;
-  justify-self:stretch!important;
-  z-index:2!important;
-  position:relative!important;
-  min-height:0!important;
-  margin:0!important;
-  padding:clamp(24px,5vw,58px) 5.7% 18px!important;
-  text-align:left!important;
-  background:rgba(91,8,18,.30)!important;
-  border:0!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-.hero-heading h1{
-  margin:0!important;
-  color:#ffdf78!important;
-  text-align:left!important;
-  font-size:clamp(38px,6.2vw,76px)!important;
-  line-height:1.18!important;
-  font-weight:700!important;
-}
-.hero-heading h2{
-  margin:2px 0 0!important;
-  color:#fff0c2!important;
-  text-align:left!important;
-  font-size:clamp(25px,4vw,43px)!important;
-  line-height:1.3!important;
-  font-weight:600!important;
-}
-.hero-inner{
-  grid-area:1/1!important;
-  align-self:end!important;
-  justify-self:stretch!important;
-  z-index:2!important;
-  position:relative!important;
-  width:100%!important;
-  min-height:0!important;
-  margin:0!important;
-  padding:clamp(155px,22vw,270px) 5.7% 30px!important;
-  display:flex!important;
-  align-items:flex-end!important;
-  background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.30) 22%,rgba(91,8,18,.70) 100%)!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-.hero-copy{width:100%!important;max-width:1000px!important}
-.hero-pill{
-  display:inline-block!important;
-  margin:0 0 14px!important;
-  padding:8px 22px!important;
-  border:2px solid #f4ce69!important;
-  border-radius:50px!important;
-  background:rgba(91,8,18,.30)!important;
-  color:#ffe8a1!important;
-  font-size:clamp(15px,2.1vw,24px)!important;
-}
-.hero-desc{
-  max-width:1000px!important;
-  margin:8px 0 22px!important;
-  color:#fff9ee!important;
-  font-size:clamp(18px,2.5vw,30px)!important;
-  line-height:1.65!important;
-  text-shadow:0 1px 3px rgba(0,0,0,.22)!important;
-}
-.hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
-.hero-actions .button{font-size:clamp(16px,2vw,24px)!important;padding:13px 24px!important;border-radius:45px!important}
-@media(max-width:700px){
- .hero-heading{padding:22px 5.7% 14px!important;background:rgba(91,8,18,.30)!important}
- .hero-heading h1{font-size:clamp(36px,8.8vw,52px)!important;line-height:1.23!important}
- .hero-heading h2{font-size:clamp(24px,6vw,32px)!important}
- .hero-inner{
-   padding:clamp(210px,58vw,360px) 5.7% 28px!important;
-   background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.30) 18%,rgba(91,8,18,.72) 100%)!important;
- }
- .hero-desc{font-size:clamp(17px,4.5vw,20px)!important;line-height:1.65!important;margin:10px 0 18px!important}
- .hero-pill{font-size:16px!important;padding:7px 15px!important}
- .hero-actions{gap:10px!important}
- .hero-actions .button{font-size:16px!important;padding:12px 17px!important}
-}
-
-/* FINAL HERO FIX: photo is the canvas; heading and copy overlay it translucently */
-.hero{display:block!important;position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#650d16!important;padding:0!important}
-.hero-photo{display:block!important;width:100%!important;margin:0!important;padding:0!important;line-height:0!important;background:transparent!important}
-.hero-photo img{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top!important}
-.hero-heading{position:absolute!important;top:0!important;left:0!important;right:0!important;z-index:2!important;min-height:0!important;margin:0!important;padding:clamp(20px,4.8vw,54px) 5.7% 18px!important;text-align:left!important;background:rgba(91,8,18,.30)!important;border:0!important}
-.hero-heading h1{margin:0!important;color:#ffdf78!important;font-size:clamp(38px,6.2vw,76px)!important;line-height:1.18!important;font-weight:700!important;text-align:left!important}
-.hero-heading h2{margin:2px 0 0!important;color:#fff0c2!important;font-size:clamp(25px,4vw,43px)!important;line-height:1.3!important;font-weight:600!important;text-align:left!important}
-.hero-inner{position:absolute!important;left:0!important;right:0!important;bottom:0!important;z-index:2!important;width:100%!important;min-height:0!important;margin:0!important;padding:clamp(150px,25vw,290px) 5.7% 30px!important;display:flex!important;align-items:flex-end!important;background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.30) 30%,rgba(91,8,18,.48) 100%)!important}
-.hero-copy{width:100%!important;max-width:1000px!important}
-.hero-pill{display:inline-block!important;margin:0 0 14px!important;padding:8px 22px!important;border:2px solid #f4ce69!important;border-radius:50px!important;background:rgba(91,8,18,.20)!important;color:#ffe8a1!important;font-size:clamp(15px,2.1vw,24px)!important}
-.hero-desc{max-width:1000px!important;margin:8px 0 22px!important;color:#fff9ee!important;font-size:clamp(18px,2.5vw,30px)!important;line-height:1.65!important;text-shadow:0 1px 3px rgba(0,0,0,.3)!important}
-.hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
-.hero-actions .button{font-size:clamp(16px,2vw,24px)!important;padding:13px 24px!important;border-radius:45px!important}
-@media(max-width:700px){
-.hero-heading{padding:22px 5.7% 14px!important;background:rgba(91,8,18,.30)!important}
-.hero-heading h1{font-size:clamp(36px,8.8vw,52px)!important;line-height:1.23!important}
-.hero-heading h2{font-size:clamp(24px,6vw,32px)!important}
-.hero-inner{padding:clamp(190px,53vw,330px) 5.7% 28px!important;background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.30) 22%,rgba(91,8,18,.48) 100%)!important}
-.hero-desc{font-size:clamp(17px,4.5vw,20px)!important;line-height:1.65!important;margin:10px 0 18px!important}
-.hero-pill{font-size:16px!important;padding:7px 15px!important}
-.hero-actions{gap:10px!important}
-.hero-actions .button{font-size:16px!important;padding:12px 17px!important}
-}
-
-
-/* Reference-matched hero: text overlays the full, sharp Devi photograph.
-   Keep the title band only as tall as its two lines; let the lower gradient
-   begin over the photo and fade into maroon without a hard seam. */
-.hero{
-  display:block!important;
-  position:relative!important;
-  isolation:isolate!important;
-  overflow:hidden!important;
-  padding:0!important;
-  background:#650d16!important;
-}
-.hero-photo{
-  display:block!important;
-  position:relative!important;
-  z-index:0!important;
-  width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  background:transparent!important;
-  line-height:0!important;
-}
-.hero-photo img{
-  display:block!important;
-  width:100%!important;
-  height:auto!important;
-  max-height:none!important;
-  object-fit:contain!important;
-  object-position:center top!important;
-  filter:none!important;
 }
 .hero-heading{
   position:absolute!important;
-  z-index:2!important;
-  top:0!important;left:0!important;right:0!important;
-  min-height:0!important;
+  z-index:2;
+  top:0;left:0;right:0;
+  width:100%;
   margin:0!important;
-  padding:clamp(22px,5.4vw,58px) 5.7% 20px!important;
+  padding:clamp(24px,5vw,58px) max(5.7%,calc((100% - 1160px)/2)) 24px!important;
   text-align:left!important;
-  background:rgba(91,8,18,.30)!important;
+  background:linear-gradient(180deg,rgba(76,5,13,.76) 0%,rgba(76,5,13,.58) 72%,rgba(76,5,13,0) 100%)!important;
   border:0!important;
 }
 .hero-heading h1{
   margin:0!important;
-  color:#ffdf78!important;
-  font-size:clamp(38px,6.2vw,76px)!important;
-  line-height:1.2!important;
-  font-weight:700!important;
-  text-align:left!important;
+  color:#ffdf83!important;
+  font-family:'Tiro Devanagari Hindi','Hind',serif;
+  font-size:clamp(38px,5.4vw,66px)!important;
+  font-weight:600!important;
+  line-height:1.22!important;
+  letter-spacing:0!important;
+  text-shadow:0 2px 8px rgba(0,0,0,.22);
 }
 .hero-heading h2{
   margin:2px 0 0!important;
-  color:#fff0c2!important;
-  font-size:clamp(25px,4vw,43px)!important;
-  line-height:1.3!important;
+  color:#fff0c5!important;
+  font-size:clamp(23px,3vw,34px)!important;
   font-weight:600!important;
-  text-align:left!important;
+  line-height:1.35!important;
 }
 .hero-inner{
   position:absolute!important;
   z-index:2!important;
-  left:0!important;right:0!important;bottom:0!important;
+  left:0;right:0;bottom:0;
   width:100%!important;
   min-height:0!important;
   margin:0!important;
-  padding:clamp(125px,20vw,235px) 5.7% 30px!important;
+  padding:clamp(145px,22vw,260px) max(5.7%,calc((100% - 1160px)/2)) 34px!important;
   display:flex!important;
   align-items:flex-end!important;
-  background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.16) 18%,rgba(91,8,18,.48) 58%,rgba(91,8,18,.78) 100%)!important;
+  background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,.10) 12%,rgba(76,5,13,.48) 45%,rgba(76,5,13,.82) 100%)!important;
 }
 .hero-copy{width:100%!important;max-width:1000px!important}
 .hero-pill{
@@ -490,7 +140,7 @@
   padding:8px 22px!important;
   border:2px solid rgba(255,218,119,.94)!important;
   border-radius:50px!important;
-  background:rgba(91,8,18,.22)!important;
+  background:rgba(91,8,18,.24)!important;
   color:#ffe8a1!important;
   font-size:clamp(15px,2.1vw,24px)!important;
 }
@@ -505,12 +155,12 @@
 .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
 .hero-actions .button{font-size:clamp(16px,2vw,24px)!important;padding:13px 24px!important;border-radius:45px!important}
 @media(max-width:700px){
-  .hero-heading{padding:22px 5.7% 14px!important;background:rgba(91,8,18,.30)!important}
-  .hero-heading h1{font-size:clamp(36px,8.8vw,52px)!important;line-height:1.23!important}
-  .hero-heading h2{font-size:clamp(24px,6vw,32px)!important}
+  .hero-heading{padding:24px 5.7% 20px!important;background:linear-gradient(180deg,rgba(76,5,13,.76) 0%,rgba(76,5,13,.55) 76%,rgba(76,5,13,0) 100%)!important}
+  .hero-heading h1{font-size:clamp(34px,8.8vw,52px)!important;line-height:1.23!important}
+  .hero-heading h2{font-size:clamp(23px,6vw,32px)!important}
   .hero-inner{
-    padding:clamp(120px,28vw,205px) 5.7% 27px!important;
-    background:linear-gradient(180deg,rgba(91,8,18,0) 0%,rgba(91,8,18,.18) 15%,rgba(91,8,18,.52) 55%,rgba(91,8,18,.78) 100%)!important;
+    padding:clamp(135px,28vw,205px) 5.7% 27px!important;
+    background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,.16) 14%,rgba(76,5,13,.52) 54%,rgba(76,5,13,.82) 100%)!important;
   }
   .hero-desc{font-size:clamp(17px,4.5vw,20px)!important;line-height:1.55!important;margin:9px 0 16px!important}
   .hero-pill{font-size:16px!important;padding:7px 15px!important}
