@@ -304,3 +304,14 @@
   .hero-actions{gap:7px!important}
   .hero-actions .button{font-size:12px!important;padding:9px 12px!important}
 }
+
+
+/* Bottom hero content only — leave the top title exactly as it is */
+@media(max-width:700px){
+  .hero-inner{padding-top:clamp(235px,64vw,350px)!important;padding-bottom:12px!important}
+  .hero-pill{font-size:10px!important;line-height:1.25!important;padding:4px 9px!important;margin-bottom:5px!important}
+  .hero-desc{font-size:11px!important;line-height:1.38!important;margin:4px 0 8px!important}
+  .hero-actions{gap:6px!important}
+  .hero-actions .button{font-size:10px!important;line-height:1.2!important;padding:7px 10px!important}
+  .hero-inner{background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,0) 45%,rgba(76,5,13,.28) 70%,rgba(76,5,13,.68) 100%)!important}
+}
