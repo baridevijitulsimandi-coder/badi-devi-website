@@ -123,3 +123,41 @@
  .hero-inner{padding:20px 6% 26px!important}
  .hero-desc{font-size:14px;line-height:1.8}
 }
+
+
+/* Fine-tuned homepage title and translucent photo transitions */
+.hero-heading{
+  position:relative;
+  z-index:2;
+  text-align:left!important;
+  padding:25px max(6%,calc((100% - 1160px)/2)) 22px!important;
+  background:linear-gradient(180deg,rgba(91,8,18,.94) 0%,rgba(91,8,18,.78) 72%,rgba(91,8,18,.42) 100%)!important;
+  border-bottom:0!important;
+  margin-bottom:-1px;
+}
+.hero-heading h1{font-size:clamp(38px,5.4vw,62px)!important;letter-spacing:.01em}
+.hero-heading h2{font-size:clamp(22px,3vw,30px)!important}
+.hero-photo{
+  margin-top:-1px;
+  background:linear-gradient(180deg,rgba(91,8,18,.2),rgba(91,8,18,.08) 15%,rgba(91,8,18,.28) 100%)!important;
+}
+.hero-photo img{
+  width:100%!important;
+  max-height:none!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+}
+.hero-inner{
+  margin-top:-1px!important;
+  background:linear-gradient(180deg,rgba(91,8,18,.40),rgba(91,8,18,.78))!important;
+  padding-top:25px!important;
+}
+.hero-pill,.hero-desc,.hero-actions{position:relative;z-index:1}
+@media(max-width:700px){
+  .hero-heading{padding:22px 6% 18px!important;background:linear-gradient(180deg,rgba(91,8,18,.94),rgba(91,8,18,.62))!important}
+  .hero-heading h1{font-size:clamp(35px,8.5vw,48px)!important;line-height:1.3}
+  .hero-heading h2{font-size:23px!important}
+  .hero-photo{background:linear-gradient(180deg,rgba(91,8,18,.12),rgba(91,8,18,.2))!important}
+  .hero-inner{padding:22px 6% 28px!important;background:linear-gradient(180deg,rgba(91,8,18,.42),rgba(91,8,18,.82))!important}
+}
