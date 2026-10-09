@@ -291,3 +291,16 @@
   .hero-actions{gap:8px!important}
   .hero-actions .button{font-size:13px!important;padding:10px 14px!important}
 }
+
+
+/* Mobile hero refinement: smaller heading, keep the Devi's face and crown clear */
+@media(max-width:700px){
+  .hero-heading{padding:12px 5.7% 9px!important;background:linear-gradient(180deg,rgba(76,5,13,.58) 0%,rgba(76,5,13,.36) 68%,rgba(76,5,13,0) 100%)!important}
+  .hero-heading h1{font-size:clamp(27px,6.8vw,36px)!important;line-height:1.18!important}
+  .hero-heading h2{font-size:clamp(18px,4.8vw,24px)!important;line-height:1.22!important;margin-top:1px!important}
+  .hero-inner{padding:clamp(180px,53vw,285px) 5.7% 18px!important;background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,0) 42%,rgba(76,5,13,.34) 68%,rgba(76,5,13,.72) 100%)!important}
+  .hero-pill{font-size:12px!important;padding:5px 11px!important;border-width:1.5px!important;margin-bottom:7px!important}
+  .hero-desc{font-size:14px!important;line-height:1.48!important;margin:6px 0 11px!important}
+  .hero-actions{gap:7px!important}
+  .hero-actions .button{font-size:12px!important;padding:9px 12px!important}
+}
