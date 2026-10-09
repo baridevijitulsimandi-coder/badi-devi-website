@@ -62,3 +62,19 @@
   #events .event-row strong { font-size:14px; }
   #events .event-row small { font-size:12px; }
 }
+
+/* Hero: keep all title and call-to-action text above the full-width Devi photo */
+.hero { background-position:center top,center bottom!important; }
+.hero-inner { min-height:0; padding:42px 0 300px; }
+.hero-copy { max-width:720px; }
+.hero-overline { display:none!important; }
+@media(max-width:790px) {
+ .hero-inner { padding:32px 0 280px; }
+}
+@media(max-width:520px) {
+ .hero { background-position:center top,center bottom!important; background-size:100% 100%,100% auto!important; }
+ .hero-inner { width:88%; min-height:0!important; padding:25px 0 300px!important; }
+ .hero-copy { padding:0!important; }
+ .hero h1 { font-size:clamp(30px,8vw,39px)!important; }
+ .hero-desc { margin-bottom:16px!important; }
+}
