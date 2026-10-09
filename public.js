@@ -22,8 +22,12 @@ function renderGallery(items) {
   cards.querySelectorAll('[data-gallery-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.galleryYear;renderGallery(items)}));
 }
 function renderVideos(items) {
-  if(!items.length) return;
-  $('videoCards').innerHTML=items.map(x=>`<article class="media-card"><a class="video-placeholder" href="${esc(x.video_url)}" target="_blank" rel="noopener" aria-label="${esc(x.title)}"><span>▶</span></a><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.creator_name||'')} ${x.platform?`· ${esc(x.platform)}`:''}</p></div></article>`).join('');
+  const cards=$('videoCards');
+  if(!cards) return;
+  const years=[...new Set(['2025',...items.map(x=>String(x.year_label||'2025'))])].sort((a,b)=>Number(b)-Number(a));
+  const selected=cards.dataset.year||'2025';
+  cards.innerHTML=`<div style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-video-year="${esc(y)}">${esc(y)}</button>`).join('')}</div>`+items.filter(x=>String(x.year_label||'2025')===selected).map(x=>`<article class="media-card"><video controls preload="metadata" playsinline src="${esc(x.video_url)}"></video><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description||'')} · ${esc(x.year_label||'2025')}</p></div></article>`).join('');
+  cards.querySelectorAll('[data-video-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.videoYear;renderVideos(items)}));
 }
 function renderAnnouncements(items) {
   if(!items.length) return;
