@@ -334,3 +334,15 @@
     background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,0) 60%,rgba(76,5,13,.18) 82%,rgba(76,5,13,.08) 100%)!important;
   }
 }
+
+
+/* Last requested mobile adjustment: move bottom copy lower and remove maroon strip */
+@media(max-width:700px){
+  .hero-inner{
+    margin-top:-70px!important;
+    padding-top:clamp(450px,120vw,560px)!important;
+    padding-bottom:0!important;
+    background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,0) 72%,rgba(76,5,13,.12) 92%,rgba(76,5,13,0) 100%)!important;
+  }
+  .hero{background:transparent!important}
+}
