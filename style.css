@@ -382,3 +382,13 @@
   .hero-actions .button{font-size:9px!important;line-height:1.1!important;padding:6px 8px!important}
   .hero{padding-bottom:12px!important}
 }
+
+/* Mobile: make lower hero text/buttons smaller and anchor them lower */
+@media(max-width:700px){
+  .hero-inner{padding:0 5.7% 2px!important;transform:none!important}
+  .hero-pill{font-size:8px!important;line-height:1.05!important;padding:2px 6px!important;margin:0 0 2px!important}
+  .hero-desc{font-size:9px!important;line-height:1.15!important;margin:1px 0 3px!important}
+  .hero-actions{gap:4px!important;flex-wrap:nowrap!important}
+  .hero-actions .button{font-size:8px!important;line-height:1.05!important;padding:5px 7px!important;white-space:nowrap!important}
+  .hero{padding-bottom:4px!important}
+}
