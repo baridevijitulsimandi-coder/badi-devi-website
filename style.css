@@ -315,3 +315,9 @@
   .hero-actions .button{font-size:10px!important;line-height:1.2!important;padding:7px 10px!important}
   .hero-inner{background:linear-gradient(180deg,rgba(76,5,13,0) 0%,rgba(76,5,13,0) 45%,rgba(76,5,13,.28) 70%,rgba(76,5,13,.68) 100%)!important}
 }
+
+
+/* Move the smaller hero text lower, toward the bottom of the Durga photo */
+@media(max-width:700px){
+  .hero-inner{padding-top:clamp(300px,82vw,430px)!important}
+}
