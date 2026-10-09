@@ -16,7 +16,7 @@ function showSocial(s) {
 function ensureImageViewer() {
   if ($('imageViewer')) return;
   const style=document.createElement('style');
-  style.textContent=`.gallery-photo{display:none}.gallery-open-button{width:100%;min-height:180px;border:0;border-radius:10px;background:linear-gradient(135deg,#650d16,#a85a22);color:#fff;font:600 18px inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.gallery-open-button span{font-size:24px}.image-viewer{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px}.image-viewer.open{display:flex}.image-viewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:6px}.image-viewer button{position:absolute;top:14px;right:16px;border:0;border-radius:50%;width:42px;height:42px;font-size:28px;background:#fff;color:#222;cursor:pointer}.image-viewer-caption{position:absolute;bottom:12px;left:12px;right:12px;color:#fff;text-align:center;font-size:15px}`;
+  style.textContent=`.gallery-photo{display:block;width:100%;height:220px;object-fit:cover;border-radius:10px;cursor:pointer}.image-viewer{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px}.image-viewer.open{display:flex}.image-viewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:6px}.image-viewer button{position:absolute;top:14px;right:16px;border:0;border-radius:50%;width:42px;height:42px;font-size:28px;background:#fff;color:#222;cursor:pointer}.image-viewer-caption{position:absolute;bottom:12px;left:12px;right:12px;color:#fff;text-align:center;font-size:15px}`;
   document.head.appendChild(style);
   const viewer=document.createElement('div');
   viewer.id='imageViewer';viewer.className='image-viewer';viewer.setAttribute('role','dialog');viewer.setAttribute('aria-modal','true');viewer.setAttribute('aria-label','बड़ी तस्वीर');
@@ -39,9 +39,9 @@ function renderGallery(items) {
   if(!cards) return;
   const years=[...new Set(['2025',...items.map(x=>String(x.year_label||'2025'))])].sort((a,b)=>Number(b)-Number(a));
   const selected=cards.dataset.year||'2025';
-  cards.innerHTML=`<div class="gallery-year-filter" style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-gallery-year="${esc(y)}">${esc(y)}</button>`).join('')}</div>`+items.filter(x=>String(x.year_label||'2025')===selected && x.media_type!=='video').map(x=>`<article class="media-card"><button type="button" class="gallery-open-button" data-view-image="${esc(x.media_url)}" data-view-title="${esc(x.title)}"><span aria-hidden="true">🖼️</span><span>तस्वीर देखने के लिए क्लिक करें</span></button><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description||'')} · ${esc(x.year_label||'2025')}</p></div></article>`).join('');
+  cards.innerHTML=`<div class="gallery-year-filter" style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-gallery-year="${esc(y)}">${esc(y)}</button>`).join('')}</div>`+items.filter(x=>String(x.year_label||'2025')===selected && x.media_type!=='video').map(x=>`<article class="media-card"><img class="gallery-photo" loading="lazy" src="${esc(x.media_url)}" alt="${esc(x.title)}" data-view-image="${esc(x.media_url)}" data-view-title="${esc(x.title)}"><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description||'')} · ${esc(x.year_label||'2025')}</p></div></article>`).join('');
   cards.querySelectorAll('[data-gallery-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.galleryYear;renderGallery(items)}));
-  cards.querySelectorAll('[data-view-image]').forEach(btn=>btn.addEventListener('click',()=>openImageViewer(btn.dataset.viewImage,btn.dataset.viewTitle)));
+  cards.querySelectorAll('[data-view-image]').forEach(img=>img.addEventListener('click',()=>openImageViewer(img.dataset.viewImage,img.dataset.viewTitle)));
 }
 function renderVideos(items) {
   const cards=$('videoCards');
@@ -73,6 +73,7 @@ function renderCommittee(items) {
   if(!items.length) return;
   $('committeeList').innerHTML=items.map(x=>`<div class="committee-row"><strong>${esc(x.role||'समिति सदस्य')}: ${esc(x.name)}</strong><span>${x.phone?`संपर्क: ${esc(x.phone)}`:''} ${esc(x.bio||'')}</span></div>`).join('');
 }
+document.querySelectorAll('a[href="#gallery"]').forEach(link=>link.addEventListener('click',()=>{const section=$('gallery');if(section)section.hidden=false;}));
 async function init() {
   const form=$('contactForm');
   if(form) form.addEventListener('submit',e=>{e.preventDefault();$('formStatus').textContent=db?'संदेश भेजने की सुविधा सेटअप की जाँच के बाद सक्रिय की जाएगी।':'यह फ़ॉर्म संदेश भेजने के लिए अभी सक्रिय नहीं है। Supabase सेटअप के बाद इसे जोड़ा जाएगा।';});
