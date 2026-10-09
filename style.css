@@ -360,3 +360,8 @@
   .hero-actions{gap:6px!important}
   .hero-actions .button{font-size:10px!important;line-height:1.2!important;padding:7px 10px!important}
 }
+
+/* Mobile: lower only the bottom hero text/actions; preserve heading and image */
+@media(max-width:700px){
+  .hero-inner{padding-bottom:2px!important; transform:translateY(10px)!important}
+}
