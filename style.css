@@ -365,3 +365,10 @@
 @media(max-width:700px){
   .hero-inner{padding-bottom:2px!important; transform:translateY(10px)!important}
 }
+
+/* Mobile: keep hero actions fully visible, and move following sections down */
+@media(max-width:700px){
+  .hero-inner{padding-bottom:22px!important;transform:translateY(0)!important}
+  .hero-actions{margin-bottom:0!important}
+  .hero{padding-bottom:18px!important}
+}
