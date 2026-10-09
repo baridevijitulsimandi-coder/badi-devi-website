@@ -27,8 +27,17 @@ function renderAnnouncements(items) {
   $('announcementList').innerHTML=items.map(x=>`<article class="announcement"><strong>${esc(x.title)}</strong><p>${esc(x.body)}</p><small>${x.created_at?new Date(x.created_at).toLocaleDateString('hi-IN'):''}</small></article>`).join('');
 }
 function renderEvents(items) {
-  if(!items.length) return;
-  $('eventList').innerHTML=items.map(x=>`<div class="event-row"><span class="event-date">${esc(x.event_date||'तिथि')}</span><span><strong>${esc(x.title)}</strong><small>${esc(x.event_time||'')} ${esc(x.description||'')}</small></span></div>`).join('');
+  const fallback=[
+    {event_date:'11.10.2026',title:'कलश स्थापना',event_time:'प्रथम दिवस पूजन',description:'',sort_order:1},
+    {event_date:'17.10.2026',title:'सप्तमी पूजा',event_time:'पट उद्घाटन',description:'',sort_order:2},
+    {event_date:'18.10.2026',title:'अष्टमी पूजा',event_time:'महाअष्टमी व्रत',description:'',sort_order:3},
+    {event_date:'19.10.2026',title:'महानवमी पूजा',event_time:'हवन एवं विशेष पूजा',description:'',sort_order:4},
+    {event_date:'21.10.2026',title:'विजयादशमी',event_time:'भव्य शोभा यात्रा',description:'आजाद मंडप, वैशाली',sort_order:5},
+    {event_date:'प्रतिदिन',title:'दैनिक आरती',event_time:'संध्या 7:00 बजे',description:'',sort_order:6},
+    {event_date:'प्रतिदिन',title:'महाप्रसाद वितरण',event_time:'आरती के बाद',description:'',sort_order:7}
+  ];
+  const data=items.length?items:fallback;
+  $('eventList').innerHTML=data.map(x=>`<div class="event-row"><span class="event-date">${esc(x.event_date||'तिथि')}</span><span><strong>${esc(x.title)}</strong><small>${esc(x.event_time||'')} ${esc(x.description||'')}</small></span></div>`).join('');
 }
 function renderCommittee(items) {
   if(!items.length) return;
