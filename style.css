@@ -252,3 +252,24 @@
  .hero-actions{gap:10px!important}
  .hero-actions .button{font-size:16px!important;padding:12px 17px!important}
 }
+
+
+/* Fix reference mismatch: keep the Devi photo sharp; only tint it with translucent maroon */
+.hero-heading{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.hero-inner{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.hero-heading{background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.30))!important}
+.hero-photo{background:transparent!important}
+.hero-photo img{filter:none!important}
+.hero-inner{
+  margin-top:clamp(-260px,-25vw,-175px)!important;
+  padding-top:clamp(190px,25vw,270px)!important;
+  background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.48))!important;
+}
+@media(max-width:700px){
+ .hero-heading{margin-bottom:-150px!important;background:rgba(91,8,18,.30)!important}
+ .hero-inner{
+   margin-top:-245px!important;
+   padding:260px 6% 28px!important;
+   background:linear-gradient(180deg,rgba(91,8,18,.30),rgba(91,8,18,.48))!important;
+ }
+}
