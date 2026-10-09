@@ -32,7 +32,7 @@ function renderEvents(items) {
     {event_date:'17.10.2026',title:'सप्तमी पूजा',event_time:'पट उद्घाटन',description:'',sort_order:2},
     {event_date:'18.10.2026',title:'अष्टमी पूजा',event_time:'महाअष्टमी व्रत',description:'',sort_order:3},
     {event_date:'19.10.2026',title:'महानवमी पूजा',event_time:'हवन एवं विशेष पूजा',description:'',sort_order:4},
-    {event_date:'21.10.2026',title:'विजयादशमी',event_time:'भव्य शोभा यात्रा',description:'आज़ाद बैंड के साथ भव्य',sort_order:5},
+    {event_date:'21.10.2026',title:'विजयादशमी',event_time:'भव्य शोभा यात्रा',description:'आज़ाद बैंड के साथ',sort_order:5},
     {event_date:'प्रतिदिन',title:'दैनिक आरती',event_time:'संध्या 7:00 बजे',description:'',sort_order:6},
     {event_date:'प्रतिदिन',title:'महाप्रसाद वितरण',event_time:'आरती के बाद',description:'',sort_order:7}
   ];
