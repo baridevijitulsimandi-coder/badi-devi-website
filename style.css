@@ -20,3 +20,6 @@
 @media(max-width:1000px){.media-card>img,.media-card>video{height:115px}}
 @media(max-width:790px){.media-card>img,.media-card>video{height:145px}}
 @media(max-width:520px){.media-card>img,.media-card>video{height:102px}}
+
+/* Instagram profile and scannable QR */
+.instagram-qr{display:flex;align-items:center;gap:22px;margin-top:24px;padding:18px;border:1px solid #eadbb8;border-radius:16px;background:#fffdf6;max-width:540px}.instagram-qr img{display:block;width:150px;height:150px;object-fit:contain;border-radius:10px}.instagram-qr h3{margin:0 0 6px;color:#650d16}.instagram-qr p{margin:0 0 10px;color:#74645a;overflow-wrap:anywhere}@media(max-width:480px){.instagram-qr{gap:14px;padding:12px}.instagram-qr img{width:118px;height:118px}.instagram-qr h3{font-size:17px}}
